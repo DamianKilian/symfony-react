@@ -88,7 +88,7 @@ services:
         networks:
             - laravel
 
-    artisan:
+    console:
         build:
             context: ./dockerfiles
             dockerfile: php.dockerfile
@@ -100,7 +100,7 @@ services:
             - ./:/var/www/html:delegated
         depends_on:
             - mysql
-        entrypoint: ['php', '/var/www/html/artisan']
+        entrypoint: ['php', '/var/www/html/bin/console']
         networks:
             - laravel
 
