@@ -7,7 +7,7 @@ up:
 	docker compose up -d
 
 watch:
-	npm run watch
+	docker compose run npm npm run watch
 
 build:
 	docker compose up -d --build

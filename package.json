@@ -23,5 +23,11 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"
+    },
+    "dependencies": {
+        "@tailwindcss/postcss": "^4.1.11",
+        "postcss": "^8.5.6",
+        "postcss-loader": "^8.1.1",
+        "tailwindcss": "^4.1.11"
     }
 }
