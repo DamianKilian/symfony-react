@@ -11,3 +11,8 @@ watch:
 
 build:
 	docker compose up -d --build
+
+app-setup:
+	docker compose run composer install
+	docker compose run console doctrine:migrations:migrate
+	docker compose run console doctrine:fixtures:load
