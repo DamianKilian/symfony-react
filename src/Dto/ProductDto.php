@@ -11,6 +11,6 @@ class ProductDto
     public $name;
 
     #[Assert\NotBlank]
-    #[Assert\Type('integer')]
+    #[Assert\Type('numeric')]
     public $num;
 }

@@ -65,10 +65,11 @@ final class WareHouseController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_product_edit', methods: ['POST'])]
-    public function edit(Request $request): Response
+    public function edit(Request $request, int $id): Response
     {
         $data = json_decode($request->getContent(), true);
-        $response = $this->client->request('POST', 'http://app' . $this->generateUrl('app_product_api_edit'), [
+        
+        $response = $this->client->request('POST', 'http://app' . $this->generateUrl('app_product_api_edit', ['id' => $id]), [
             'json' => ['name' => $data['name'], 'num' => $data['num']],
             'headers' => [
                 'x-auth-token' => $this->getParameter('api.auth_token'),

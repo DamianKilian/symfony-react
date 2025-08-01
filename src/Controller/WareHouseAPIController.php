@@ -19,8 +19,12 @@ final class WareHouseAPIController extends AbstractController
     #[Route(name: 'app_product_api_index', methods: ['GET'])]
     public function index(ProductRepository $productRepository): Response
     {
+        $products = array();
+        foreach ($productRepository->findAll() as $key => $obj) {
+            $products[] = ['id' => $obj->getId(), 'name' => $obj->getName(), 'num' => $obj->getNum()];
+        }
         $data = [
-            'products' => $productRepository->findAll(),
+            'products' => $products,
             'success' => 1,
         ];
         return new JsonResponse($data);
